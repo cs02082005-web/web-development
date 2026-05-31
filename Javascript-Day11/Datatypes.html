@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    //    data type = types of data
+
+    // 1. string  - "anything inside double or single qutoes - text"
+
+    var customername = "sunil"
+
+    // builtin method are like features in programming lang - we can use directly
+    // typeof(value)
+
+    console.log(typeof(customername))
+
+    // 2. Number - +ve , -ve , decimal number
+    
+    var age = 35
+
+    console.log(typeof(age))
+
+    // 3. Boolean value - true or false
+
+    var loggedIn = true
+
+    var Netflixsub = false
+
+    console.log(typeof(loggedIn))
+
+    console.log(typeof(Netflixsub))
+
+    // 4. Null - nothing
+
+    var a = null
+
+    console.log(typeof(a))
+
+    // Note - Due to the bug in js data type of null shows object as output
+
+    // 5. undefined - whwn no value is assigned
+
+    var b
+
+    console.log(typeof(b))
+
+    // Datatype 2 -
+
+    // Array - to store multiple data of different data types as well
+    // symbol - [] Square Bracket
+    // Rule - Index No Starts With 0
+
+    var students = ["john","sunil","chandra",true,124]
+
+    console.log(students)
+
+    // Access the data arrayname[indexno]
+
+    console.log(students[1])
+    console.log(students[4])
+
+    // object - collecton of data
+    // symbol - { } curly bracket
+    // rule - (left)key:value(right) pair
+
+    var employee = {
+        // key:value
+        name:"kanha",
+        email:"kanha@gmail.com",
+        id:11123345,
+        working:true
+     }
+
+    // Access the data in object by using - objectname.keyname
+     console.log(employee)
+
+     console.log(employee.id)
+
+    //  functions - to do a task.
+    // keyword - function
+    // symbol - ()
+
+    // task : build in billcalculator
+
+    function billcalculator(){
+        // body of function - Instruction
+
+        var product1 = "milk"
+        var product2 = "bread"
+
+        var price1 = 100
+        var price2 = 50
+
+        var totalbill = price1 + price2
+
+        console.log("the total bill is " ,totalbill)
+
+    }
+        // calling statement is mandetory
+        billcalculator()  
+
+    
+
+
+    </script>
+</body>
+</html>
