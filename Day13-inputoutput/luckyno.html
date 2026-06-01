@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // task - Draw a DICE and Guess the lucky No
+
+        let luckyno = Math.floor(Math.random()*6) +1
+
+        // console.log(luckyno)
+
+        while(true){
+
+            guess = prompt("enter number between 1 to 6")
+
+            if(luckyno == guess){
+                alert("you won")
+                 break; 
+                //    break means to stop the code
+            }else{
+                alert("better luck next time")
+            }
+
+        }
+    </script>
+</body>
+</html>
