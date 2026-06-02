@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rock Paper Scissor</h1>
+
+    <div class = "choices">
+        <button class ="rock" onclick="playGame('rock')" >Rock</button>
+
+        <button class ="paper" onclick="playGame('paper')"  >Paper</button>
+
+        <button class ="scissor" onclick="playGame('scissors')" >Scissor</button>
+    </div>
+
+    <p id="result">choose an option to start the game</p>
+
+    <div class ="scoreboard">
+        <p><strong>Scoreboard</strong></p>
+         <p>wins  <span id ="wins">0</span></p>
+         <p>losses <span id="losses">0</span></p>
+         <p>draw  <span id="draws">0</span></p>
+    </div>
+
+    <script>
+
+        let wins =0
+        let losses = 0
+        let draws = 0
+
+        function playGame(userchoice){
+
+            const choices = ['rock','paper','scissors']
+            
+            const computerchoice = choices[Math.floor(Math.random()*3)]
+
+            let resultMessage = ""
+
+            // logic Game
+
+            if(userchoice === computerchoice){
+                resultMessage = "you pick the same option , it is draw "+ userchoice
+                draws++
+            }
+            else if(
+                (userchoice === 'rock' && computerchoice === 'scissors') ||
+                 (userchoice === 'paper' && computerchoice === 'rock') ||
+                 (userchoice === 'scissors' && computerchoice === 'paper')   
+            ){
+               resultMessage = "you won" + userchoice + "beats" + computerchoice   
+               wins++ 
+            }else{
+                resultMessage = "you looses" + userchoice + "beats" + userchoice
+                losses++
+            }
+
+            // DOM
+            const ele = document.getElementById("result")
+            ele.style.color = "red"
+            document.getElementById("result").innerHTML = resultMessage
+            document.getElementById("wins").innerHTML = wins
+            document.getElementById("looses").innerHTML = losses
+            document.getElementById("draws").innerHTML = draws
+             }
+    </script>
+</body>
+</html>
