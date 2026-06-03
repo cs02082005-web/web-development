@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mydiv{
+            margin-top: 15px;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            overflow: auto;
+        }
+
+        .content{
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome To Event</h2>
+
+    <input id="myInput" placeholder="type something to search...">
+
+
+    <div id="mydiv">
+        <div class="content">Scroll Inside Me</div>
+    </div>
+
+    <script>
+        // step 1:Select Element
+        const input = document.getElementById("myInput")
+
+        const div =document.getElementById("mydiv")
+
+        // step 2:capture Event./action
+
+        // 1.keyup - when key is released you get output
+        // input.addEventListener('keyup',function(e){
+        //     console.log("key released - " +e.key)
+        // })
+
+        // 2.keydown - when key is pressed you get output
+        // input.addEventListener('keydown',function(x){
+        //     console.log("key released - " +x.key)
+        // })
+
+        //   3.change : Change Happening in the input
+        input.addEventListener('change',function(y){
+
+            console.log('value of input - ' + y.target.value)
+        })
+
+        // 4.mouseover - moving mouse on something
+        div.addEventListener("mouseover" , function(){
+            div.style.backgroundColor = "green"
+        })
+
+        // 5.mouseout
+        div.addEventListener("mouseout" , function(){
+            div.style.backgroundColor = "red"
+        })
+         
+      
+    </script>
+
+</body>
+</html>
