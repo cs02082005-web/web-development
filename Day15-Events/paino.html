@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .piano{
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .key{
+            border:1px solid black;
+            height:200px;
+            width:60px;
+            margin: 2px;
+           background-color: white;
+           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+           cursor:pointer;
+           transition: background-color 0.3s ;
+            
+        } 
+
+        .key:active{
+            background-color: #ddd;
+        }
+        
+        
+
+        
+    </style>
+</head>
+<body>
+    <h1>piano - Events </h1>
+
+    <div class="piano">
+        <div class="key" data-note="C">CAT</div>
+        <div class="key" data-note="D" >D</div>
+        <div class="key" data-note="E">E</div>
+        <div class="key" data-note="F">F</div>
+        <div class="key" data-note="G">G</div> 
+        <div class="key" data-note="A">A</div>
+        <div class="key" data-note="B">B</div>
+    </div>
+
+    <audio id="audio-C"  src="./black_kumizhi-electric-guitar-accent-485733.mp3"></audio>
+    <audio id="audio-D"  src="./freesound_community-027574_f-bass-note-guitar-string-77385.mp3"></audio>
+    <audio id="audio-E"  src="./freesound_community-2-notes-octave-guitar-83275.mp3"></audio>
+    <audio id="audio-F"  src="./freesound_community-a3-101081.mp3"></audio>
+    <audio id="audio-G"  src="./freesound_community-dramatic-guitar-82852.mp3"></audio>
+    <audio id="audio-A"  src="./freesound_community-one-note-electric-guitar-90716.mp3"></audio>
+    <audio id="audio-B"  src="./soundsgoodmusic-guitar-note-375696.mp3"></audio>
+
+    <script>
+        const keys = document.querySelectorAll(".key")
+          
+        console.log("keys")
+
+        // keys will be an array because it is storing multiple div container
+
+       keys.forEach(function(e){
+         
+        const note = e.getAttribute("data-note")
+
+        const audio = document.getElementById("audio-"+note)
+
+        e.addEventListener("click",function(){
+            audio.currentTime = 0;
+            audio.play()
+        })
+
+         // mouse
+    e.addEventListener("mouseover",function(){
+        e.style.backgroundColor ="lightblue"
+    })
+
+    e.addEventListener("mouseout",function(){
+        e.style.backgroundColor = "white"
+    })
+     
+    })
+
+ 
+    </script>
+        
+</body>
+</html>
