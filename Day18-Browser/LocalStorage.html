@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Localstorgae - Act like Permanment Storage
+
+        //localstorage.setItem(key,value)
+
+        localStorage.setItem("CartAmazon",["Shoes", "Tee" , "Mobile"])
+
+        localStorage.removeItem("Cart")
+
+       const Info =  localStorage.getItem("CartAmazon")
+      console.log(Info)
+
+    </script>
+</body>
+</html>
