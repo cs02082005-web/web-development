@@ -1,85 +1,131 @@
-const products = [
+const headphones = [
 {
-    name:"Smart Watch",
-    price:"₹2999",
-    image:"https://images.pexels.com/photos/18259150/pexels-photo-18259150.jpeg"
+    id: 1,
+    name: "Sony WH-1000XM5",
+    price: 24999,
+    image: "https://images.pexels.com/photos/5382359/pexels-photo-5382359.jpeg"
 },
 {
-    name:"Smart Phone",
-    price:"₹19999",
-    image:"https://images.pexels.com/photos/17249214/pexels-photo-17249214.jpeg"
+    id: 2,
+    name: "Boat Rockerz 550",
+    price: 1999,
+    image: "https://images.pexels.com/photos/30563921/pexels-photo-30563921.jpeg"
 },
 {
-    name:"Wireless Earbuds",
-    price:"₹2499",
-    image:"https://images.pexels.com/photos/33936400/pexels-photo-33936400.jpeg"
+    id: 3,
+    name: "JBL Tune 760NC",
+    price: 5999,
+    image: "https://images.pexels.com/photos/8597722/pexels-photo-8597722.jpeg"
 },
 {
-    name:"Bluetooth Headset",
-    price:"₹1499",
-    image:"https://images.pexels.com/photos/35235991/pexels-photo-35235991.jpeg"
+    id: 4,
+    name: "Noise Two Wireless",
+    price: 2499,
+    image: "https://images.pexels.com/photos/6863032/pexels-photo-6863032.jpeg"
+},
+{
+    id: 5,
+    name:"Bose Rockz",
+    price:3999,
+    image: "https://images.pexels.com/photos/17664053/pexels-photo-17664053.jpeg" 
+},
+{
+    id:5,
+    name:"Panasonic",
+    price:4999,
+    image:"https://images.pexels.com/photos/346642/pexels-photo-346642.jpeg"
 }
 ];
 
-const productContainer =
-document.getElementById("products");
+const productsContainer = document.getElementById("products");
+const searchInput = document.getElementById("search");
+const darkBtn = document.getElementById("darkMode");
 
-function displayProducts(data){
+let cartCount = 0;
 
-    productContainer.innerHTML="";
+// Cart Counter Element
+const cartDisplay = document.createElement("h3");
+cartDisplay.style.textAlign = "center";
+cartDisplay.innerText = "Cart Items: 0";
+document.body.insertBefore(cartDisplay, productsContainer);
 
-    data.forEach(product=>{
+// Display Products
+function displayProducts(productList){
 
-        const card=document.createElement("div");
+    productsContainer.innerHTML = "";
+
+    productList.forEach(product => {
+
+        const card = document.createElement("div");
 
         card.classList.add("card");
 
-        card.innerHTML=`
-        <img src="${product.image}">
-        <h3>${product.name}</h3>
-        <p>${product.price}</p>
-        <button class="buy-btn">Buy Now</button>
+        card.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>Price: ₹${product.price}</p>
+            <button class="buy-btn" data-id="${product.id}">
+                Buy Now
+            </button>
         `;
 
-        productContainer.appendChild(card);
+        productsContainer.appendChild(card);
     });
 }
 
-displayProducts(products);
+// Initial Load
+displayProducts(headphones);
 
-document.getElementById("heroBtn")
-.addEventListener("click",function(){
+// Search Products
+searchInput.addEventListener("keyup", function(){
 
-    this.innerText="Added to Cart";
+    const value = this.value.toLowerCase();
 
-});
-
-document.getElementById("search")
-.addEventListener("keyup",function(){
-
-    let value=this.value.toLowerCase();
-
-    let filtered=products.filter(product=>
+    const filteredProducts = headphones.filter(product =>
         product.name.toLowerCase().includes(value)
     );
 
-    displayProducts(filtered);
-
+    displayProducts(filteredProducts);
 });
 
-document.getElementById("darkMode")
-.addEventListener("click",()=>{
+// Dark Mode
+darkBtn.addEventListener("click", () => {
 
     document.body.classList.toggle("dark");
 
+    if(document.body.classList.contains("dark")){
+        darkBtn.innerText = "Light Mode";
+    }
+    else{
+        darkBtn.innerText = "Dark Mode";
+    }
 });
 
-document.addEventListener("click",function(e){
+// Event Delegation for Buy Buttons
+productsContainer.addEventListener("click", function(event){
 
-    if(e.target.classList.contains("buy-btn")){
+    if(event.target.classList.contains("buy-btn")){
 
-        alert("Product Added Successfully!");
+        cartCount++;
 
+        cartDisplay.innerText =
+        `Cart Items: ${cartCount}`;
+
+        event.target.innerText = "Added ✓";
+        event.target.disabled = true;
+
+        alert("Product Added To Cart");
     }
+});
 
+// Hero Button
+document.getElementById("heroBtn")
+.addEventListener("click", function(){
+
+    cartCount++;
+
+    cartDisplay.innerText =
+    `Cart Items: ${cartCount}`;
+
+    this.innerText = "Added To Cart ✓";
 });

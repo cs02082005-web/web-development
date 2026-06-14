@@ -1,3 +1,4 @@
+
 *{
     margin:0;
     padding:0;
@@ -10,7 +11,7 @@ body{
 }
 
 header{
-    background:#007bff;
+    background:#111;
     color:white;
     padding:15px;
 }
@@ -31,8 +32,8 @@ nav ul li{
 }
 
 nav ul li a{
-    color:white;
     text-decoration:none;
+    color:white;
 }
 
 .hero{
@@ -50,11 +51,11 @@ nav ul li a{
 
 .btn{
     padding:10px 20px;
-    border:none;
     background:#007bff;
     color:white;
-    cursor:pointer;
+    border:none;
     border-radius:5px;
+    cursor:pointer;
 }
 
 .controls{
@@ -81,8 +82,8 @@ nav ul li a{
 
 .card{
     background:white;
-    text-align:center;
     padding:20px;
+    text-align:center;
     border-radius:10px;
     box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
@@ -92,10 +93,10 @@ nav ul li a{
 }
 
 .buy-btn{
-    padding:10px;
     background:green;
     color:white;
     border:none;
+    padding:10px;
     cursor:pointer;
     margin-top:10px;
 }
@@ -111,7 +112,7 @@ nav ul li a{
 }
 
 .features li{
-    padding:8px;
+    padding:10px;
 }
 
 footer{
@@ -143,5 +144,5 @@ footer{
         flex-direction:column;
         text-align:center;
     }
-
 }
+
