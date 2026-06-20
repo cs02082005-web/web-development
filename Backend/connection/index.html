@@ -34,6 +34,25 @@
             //         body : value of data which you want to send to server {name , email}
             //     }
             // })
+
+          fetch("http://localhost:3000/login" ,{
+            method :"post",
+            headers :{
+                "content-type" : "application/json"
+            },
+
+            body : JSON.stringify({name , email})
+          })
+
+
+          .then(response => response.json())
+          .then(data =>{
+            document.getElementById("resMsg").textContent  = data.message
+          })
+
+          .catch (error => console.error("error" ,error))
+
+
          } )
 
 
