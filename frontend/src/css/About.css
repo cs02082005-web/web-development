@@ -1,0 +1,47 @@
+.about-hero {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.company {
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.company-left img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.mission {
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .company {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mission {
+    flex-direction: column;
+    align-items: center;
+  }
+}
